@@ -21,28 +21,37 @@ const loadVideos =()=>{
 
 // authors
 // : 
-// [{…}]
-// category_id
+// Array(1)
+// 0
 // : 
-// "1003"
-// description
+// {profile_picture: 'https://i.ibb.co/fDbPv7h/Noha.jpg', profile_name: 'Noah Walker', verified: false}
+// length
 // : 
-// "'30 Rock,' led by Tina Fey, is a comedy series that has garnered 4.5K views. The show is a witty and humorous take on the behind-the-scenes antics of a fictional live comedy show. With its sharp writing and unforgettable characters, '30 Rock' is perfect for fans of smart, satirical humor and engaging storylines."
-// others
-// : 
-// {views: '4.5K', posted_date: '14800'}
-// thumbnail
-// : 
-// "https://i.ibb.co/kc8CCFs/30-rock.png"
-// title
-// : 
-// "30 Rock"
-// video_id
-// : 
-// "aaai"
+// 1
 // [[Prototype]]
 // : 
-
+// Array(0)
+// category_id
+// : 
+// "1001"
+// description
+// : 
+// "'Midnight Serenade' by Noah Walker is a soulful journey into the depths of the night, capturing the mystique and allure of a moonlit evening. With 543K views, this song brings together tender melodies and evocative lyrics, making it a favorite among listeners seeking a contemplative yet uplifting experience. Immerse yourself in this musical masterpiece and feel the calm embrace of the night."
+// others
+// : 
+// {views: '543K', posted_date: ''}
+// thumbnail
+// : 
+// "https://i.ibb.co/QPNzYVy/moonlight.jpg"
+// title
+// : 
+// "Midnight Serenade"
+// video_id
+// : 
+// "aaab"
+// [[Prototype]]
+// : 
+// Object
 
 const displayVideos = (videos)=> {
     const videoContainer = document.getElementById('videos');
@@ -51,17 +60,27 @@ const displayVideos = (videos)=> {
         const card = document.createElement('div');
         card.classList= 'card card-compact'
         card.innerHTML=`
-         <figure>
+         <figure class='h-[250px]'>
     <img
       src=${video.thumbnail}
+      class='h-full w-full object-cover'
       alt="Shoes" />
   </figure>
-  <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
-    </div>
+  <div class="px-0 py-2 flex gap-2">
+  <div>
+
+  </div>
+    <img class="w-10 h-10 rounded-full object-cover" src=${video.authors[0].profile_picture}/>
+  </div>
+
+  <div>
+  <h2 class="font-bold">${video.title}</h2>
+  <div class="flex items-center gap-2">
+  <p class="text-gray-500">${video.authors[0].profile_name}</p>
+  <img class="w-5" src="https://img.icons8.com/?size=60&id=STBykZE1qQnd&format=png"/>
+  </div>
+  
+  <p></p>
   </div>
         `;
         videoContainer.append(card);
